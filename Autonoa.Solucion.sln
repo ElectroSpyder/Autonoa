@@ -17,6 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autonoa.Solucion.Servicio",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autonoa.Solucion.WebUI", "Autonoa.Solucion.WebUI\Autonoa.Solucion.WebUI.csproj", "{A0BC1AC2-9BBC-48F4-A47F-4BAC1B8BFA07}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{2749EEC1-1DB0-441B-8667-E72B6B0A27E9}"
+	ProjectSection(SolutionItems) = preProject
+		..\Autonoa\script.sql = ..\Autonoa\script.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
