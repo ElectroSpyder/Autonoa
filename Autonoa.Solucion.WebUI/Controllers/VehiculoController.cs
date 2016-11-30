@@ -1,22 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Autonoa.Solucion.Data;
 using Autonoa.Solucion.ILogica;
 using System.Web.Mvc;
 using AutoMapper;
+using Autonoa.Solucion.ILogica.IGenericRepository;
 using Autonoa.Solucion.Model.ViewModel;
+using Autonoa.Solucioon.Logica.VehiculoRepository;
 
 namespace Autonoa.Solucion.WebUI.Controllers
 {
     public class VehiculoController : Controller
     {
-        readonly GenericRepository<Vehiculo> _vehiculoRepository;
-        public VehiculoController(GenericRepository<Vehiculo> vehiculoRepository)
+        readonly IGenericRepository<Vehiculo> _vehiculoRepository;
+        public VehiculoController()
         {
-            _vehiculoRepository = vehiculoRepository;
+            _vehiculoRepository = new VehiculoRepository();
         }
-
-        public VehiculoController() { }
 
         // GET: Vehiculo
         public ActionResult Index()
@@ -63,8 +64,9 @@ namespace Autonoa.Solucion.WebUI.Controllers
                 var saved = _vehiculoRepository.Add(modelToSave);
                 return saved > 0 ? RedirectToAction("Details", modelToSave) : RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+
                 return View("Index");
             }
         }
