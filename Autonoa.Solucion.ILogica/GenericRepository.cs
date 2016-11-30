@@ -53,7 +53,6 @@ namespace Autonoa.Solucion.ILogica
         #region IDisposable Support
 
         private bool _disposedValue = false; // To detect redundant calls
-
         protected virtual void Dispose(bool disposing)
         {
             if (this._disposedValue) return;
@@ -68,9 +67,7 @@ namespace Autonoa.Solucion.ILogica
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
         #endregion
-
 
     }
 }
