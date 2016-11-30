@@ -16,6 +16,8 @@ namespace Autonoa.Solucion.WebUI.Controllers
             _vehiculoRepository = vehiculoRepository;
         }
 
+        public VehiculoController() { }
+
         // GET: Vehiculo
         public ActionResult Index()
         {
