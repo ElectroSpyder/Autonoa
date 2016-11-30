@@ -1,6 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using AutoMapper;
+using Autonoa.Solucion.Data;
 using Autonoa.Solucion.Model.Profile;
+using Autonoa.Solucion.Model.ViewModel;
 
 namespace Autonoa.Solucion.WebUI
 {
@@ -11,7 +14,6 @@ namespace Autonoa.Solucion.WebUI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            //AutoMapperConfig.AddAdminMapping()
             var mappingConfig = new AutoMapper.MapperConfiguration(cfg =>
             {
                 cfg.AddAdminMapping();

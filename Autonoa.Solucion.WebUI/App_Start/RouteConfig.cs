@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using AutoMapper;
+using Autonoa.Solucion.Data;
+using Autonoa.Solucion.Model.ViewModel;
 
 namespace Autonoa.Solucion.WebUI
 {
@@ -18,6 +21,10 @@ namespace Autonoa.Solucion.WebUI
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //Mapper.Initialize(cfg => cfg.CreateMap<Vehiculo, VehiculoModel>());
+            ////or
+            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Vehiculo, VehiculoModel>());
         }
     }
 }

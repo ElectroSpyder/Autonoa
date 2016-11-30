@@ -8,7 +8,7 @@ using Autonoa.Solucion.ILogica.IGenericRepository;
 
 namespace Autonoa.Solucion.ILogica
 {
-    public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected AutonoaEntities AutonoaContext { get; set; } 
 
@@ -31,7 +31,8 @@ namespace Autonoa.Solucion.ILogica
 
         public T FindOneBy(Expression<Func<T, bool>> predicado)
         {
-            return AutonoaContext.Set<T>().Where(predicado).FirstOrDefault();
+            var result = AutonoaContext.Set<T>().Where(predicado).FirstOrDefault();
+            return result;
         }
 
         public int Edit(T entity)

@@ -51,56 +51,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutonoaDataModel.Context.cs">
+    <Compile Include="AutoNoaDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AutonoaDataModel.Context.tt</DependentUpon>
+      <DependentUpon>AutoNoaDataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="AutonoaDataModel.cs">
+    <Compile Include="AutoNoaDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AutonoaDataModel.tt</DependentUpon>
+      <DependentUpon>AutoNoaDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AutonoaDataModel.Designer.cs">
+    <Compile Include="AutoNoaDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AutonoaDataModel.edmx</DependentUpon>
+      <DependentUpon>AutoNoaDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs">
-      <DependentUpon>AutonoaDataModel.tt</DependentUpon>
+      <DependentUpon>AutoNoaDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Vehiculo.cs">
-      <DependentUpon>AutonoaDataModel.tt</DependentUpon>
+      <DependentUpon>AutoNoaDataModel.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="AutonoaDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AutonoaDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="AutonoaDataModel.edmx.diagram">
-      <DependentUpon>AutonoaDataModel.edmx</DependentUpon>
+    <EntityDeploy Include="AutoNoaDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AutoNoaDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AutoNoaDataModel.edmx.diagram">
+      <DependentUpon>AutoNoaDataModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AutonoaDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AutonoaDataModel.edmx</DependentUpon>
-      <LastGenOutput>AutonoaDataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="AutonoaDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AutonoaDataModel.edmx</DependentUpon>
-      <LastGenOutput>AutonoaDataModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="AutoNoaDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoNoaDataModel.edmx</DependentUpon>
+      <LastGenOutput>AutoNoaDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AutoNoaDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoNoaDataModel.edmx</DependentUpon>
+      <LastGenOutput>AutoNoaDataModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

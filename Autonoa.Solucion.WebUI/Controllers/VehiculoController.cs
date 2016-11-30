@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Autonoa.Solucion.Data;
-using Autonoa.Solucion.ILogica;
 using System.Web.Mvc;
 using AutoMapper;
 using Autonoa.Solucion.ILogica.IGenericRepository;
@@ -13,10 +11,14 @@ namespace Autonoa.Solucion.WebUI.Controllers
 {
     public class VehiculoController : Controller
     {
-        readonly IGenericRepository<Vehiculo> _vehiculoRepository;
+        private readonly IGenericRepository<Vehiculo> _vehiculoRepository;
+        
         public VehiculoController()
         {
             _vehiculoRepository = new VehiculoRepository();
+            Mapper.Initialize(cfg => cfg.CreateMap<VehiculoModel, Vehiculo>());
+            Mapper.Initialize(cfg => cfg.CreateMap<List<VehiculoModel>, List<Vehiculo>>());
+            Mapper.Initialize(cfg => cfg.CreateMap<Vehiculo, VehiculoModel>());
         }
 
         // GET: Vehiculo
@@ -51,15 +53,19 @@ namespace Autonoa.Solucion.WebUI.Controllers
         {
             try
             {
-                var result =
-                    _vehiculoRepository.FindBy(
-                        x => x.Marca == model.Marca && x.Modelo == model.Modelo && x.Motor == model.Motor);
-                var enumerable = result as Vehiculo[] ?? result.ToArray();
-                if (enumerable.Any())
-                {
-                    return RedirectToAction("Index", Mapper.Map<IEnumerable<Vehiculo>, List<VehiculoModel>>(enumerable));
-                }
+                //if (!_vehiculoRepository.GetAll().Any())
+                //{
+                //    var result =
+                //   _vehiculoRepository.FindBy(
+                //       x => x.Marca == model.Marca && x.Modelo == model.Modelo && x.Motor == model.Motor);
+                //    var enumerable = result as Vehiculo[] ?? result.ToArray();
+                //    if (enumerable.Any())
+                //    {
+                //        return RedirectToAction("Index", Mapper.Map<IEnumerable<Vehiculo>, List<VehiculoModel>>(enumerable));
+                //    }
+                //}
 
+               
                 var modelToSave = Mapper.Map<VehiculoModel, Vehiculo>(model);
                 var saved = _vehiculoRepository.Add(modelToSave);
                 return saved > 0 ? RedirectToAction("Details", modelToSave) : RedirectToAction("Index");

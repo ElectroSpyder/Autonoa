@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\Proyecto con Fabian Castillo\Proyecto\Autonoa\Autonoa.Solucion\Autonoa.Solucion.Data\AutonoaDataModel.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Proyecto con Fabian Castillo\Proyecto\GitAutoNoa\Autonoa.Solucion.Data\AutoNoaDataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
