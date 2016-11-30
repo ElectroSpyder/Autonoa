@@ -16,38 +16,7 @@ namespace Autonoa.Solucioon.Logica.VehiculoRepository
         {
             this._context = new AutonoaEntities();
         }
-        //public Vehiculo GetVehiculo(int id)
-        //{
-        //    return FindOneBy(x => x.Id == id);
-        //}
-
-        //public IEnumerable<Vehiculo> GetAllVehiculos()
-        //{
-        //    return GetAll();
-        //}
-
-        //public bool AddVehiculo(Vehiculo newVehiculo)
-        //{
-        //    return Add(newVehiculo) > 0;
-        //}
-
-        //public bool DeleteVehiculo(Vehiculo deleteVehiculo)
-        //{
-        //    if (FindOneBy(x => x.Id == deleteVehiculo.Id) != null)
-        //    {
-        //        return Delete(deleteVehiculo)>0;
-        //    }
-        //    return false;
-        //}
-
-        //public bool UpdateVehiculo(Vehiculo updateVehiculo)
-        //{
-        //    if (FindOneBy(x => x.Id == updateVehiculo.Id) != null)
-        //    {
-        //        return Edit(updateVehiculo) > 0;
-        //    }
-        //    return false;
-        //}
+       
         public int Add(Vehiculo entity)
         {
             _context.Set<Vehiculo>().Add(entity);
@@ -107,3 +76,39 @@ namespace Autonoa.Solucioon.Logica.VehiculoRepository
         }
     }
 }
+
+
+#region  Codigo que no se usa
+//public Vehiculo GetVehiculo(int id)
+//{
+//    return FindOneBy(x => x.Id == id);
+//}
+
+//public IEnumerable<Vehiculo> GetAllVehiculos()
+//{
+//    return GetAll();
+//}
+
+//public bool AddVehiculo(Vehiculo newVehiculo)
+//{
+//    return Add(newVehiculo) > 0;
+//}
+
+//public bool DeleteVehiculo(Vehiculo deleteVehiculo)
+//{
+//    if (FindOneBy(x => x.Id == deleteVehiculo.Id) != null)
+//    {
+//        return Delete(deleteVehiculo)>0;
+//    }
+//    return false;
+//}
+
+//public bool UpdateVehiculo(Vehiculo updateVehiculo)
+//{
+//    if (FindOneBy(x => x.Id == updateVehiculo.Id) != null)
+//    {
+//        return Edit(updateVehiculo) > 0;
+//    }
+//    return false;
+//}
+#endregion
