@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Autonoa.Solucion.Data;
 using System.Web.Mvc;
 using AutoMapper;
 using Autonoa.Solucion.ILogica.IGenericRepository;
+using Autonoa.Solucion.WebUI.Helper;
 using Autonoa.Solucion.Model.ViewModel;
 using Autonoa.Solucioon.Logica.VehiculoRepository;
 
@@ -12,20 +12,18 @@ namespace Autonoa.Solucion.WebUI.Controllers
     public class VehiculoController : Controller
     {
         private readonly IGenericRepository<Vehiculo> _vehiculoRepository;
-        
+        private readonly IMapper _mapper;
         public VehiculoController()
         {
             _vehiculoRepository = new VehiculoRepository();
-            Mapper.Initialize(cfg => cfg.CreateMap<VehiculoModel, Vehiculo>());
-            Mapper.Initialize(cfg => cfg.CreateMap<List<VehiculoModel>, List<Vehiculo>>());
-            Mapper.Initialize(cfg => cfg.CreateMap<Vehiculo, VehiculoModel>());
+            _mapper = AutoMapperConfig.MapperConfiguration.CreateMapper();
         }
 
         // GET: Vehiculo
         public ActionResult Index()
         {
             var vehiculo = _vehiculoRepository.GetAll();
-            var model = Mapper.Map<IEnumerable<Vehiculo>, List<VehiculoModel>>(vehiculo);
+            var model = _mapper.Map<IEnumerable<Vehiculo>, List<VehiculoModel>>(vehiculo);
 
             return View(model);
         }
@@ -36,7 +34,7 @@ namespace Autonoa.Solucion.WebUI.Controllers
             var vehiculo = _vehiculoRepository.FindOneBy(x => x.Id == id);
             if (vehiculo == null) return RedirectToAction("Index");
 
-            var model = Mapper.Map<Vehiculo, VehiculoModel>(vehiculo);
+            var model = _mapper.Map<Vehiculo, VehiculoModel>(vehiculo);
             return View(model);
         }
 
@@ -53,24 +51,12 @@ namespace Autonoa.Solucion.WebUI.Controllers
         {
             try
             {
-                //if (!_vehiculoRepository.GetAll().Any())
-                //{
-                //    var result =
-                //   _vehiculoRepository.FindBy(
-                //       x => x.Marca == model.Marca && x.Modelo == model.Modelo && x.Motor == model.Motor);
-                //    var enumerable = result as Vehiculo[] ?? result.ToArray();
-                //    if (enumerable.Any())
-                //    {
-                //        return RedirectToAction("Index", Mapper.Map<IEnumerable<Vehiculo>, List<VehiculoModel>>(enumerable));
-                //    }
-                //}
-
                
-                var modelToSave = Mapper.Map<VehiculoModel, Vehiculo>(model);
+                var modelToSave = _mapper.Map<VehiculoModel, Vehiculo>(model);
                 var saved = _vehiculoRepository.Add(modelToSave);
                 return saved > 0 ? RedirectToAction("Details", modelToSave) : RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch 
             {
 
                 return View("Index");
@@ -83,7 +69,7 @@ namespace Autonoa.Solucion.WebUI.Controllers
             var vehiculo = _vehiculoRepository.FindOneBy(x => x.Id == id);
             if (vehiculo == null) return RedirectToAction("Index");
 
-            var modelToUpdate = Mapper.Map<Vehiculo, VehiculoModel>(vehiculo);
+            var modelToUpdate = _mapper.Map<Vehiculo, VehiculoModel>(vehiculo);
 
             return View(modelToUpdate);
 
@@ -95,7 +81,7 @@ namespace Autonoa.Solucion.WebUI.Controllers
         {
             try
             {
-                var modelToUpdate = Mapper.Map<VehiculoModel, Vehiculo>(model);
+                var modelToUpdate = _mapper.Map<VehiculoModel, Vehiculo>(model);
 
                 var result = _vehiculoRepository.Edit(modelToUpdate);
                 return result > 0 ? RedirectToAction("Index") : RedirectToAction("Edit", model);
@@ -112,7 +98,7 @@ namespace Autonoa.Solucion.WebUI.Controllers
             var vehiculo = _vehiculoRepository.FindOneBy(x => x.Id == id);
             if (vehiculo == null) return RedirectToAction("Index");
 
-            var modelToDelete = Mapper.Map<Vehiculo, VehiculoModel>(vehiculo);
+            var modelToDelete = _mapper.Map<Vehiculo, VehiculoModel>(vehiculo);
             return View(modelToDelete);
         }
 
@@ -122,7 +108,7 @@ namespace Autonoa.Solucion.WebUI.Controllers
         {
             try
             {
-                var vehiculo = Mapper.Map<VehiculoModel, Vehiculo>(model);
+                var vehiculo = _mapper.Map<VehiculoModel, Vehiculo>(model);
                 var result = _vehiculoRepository.Delete(vehiculo);
 
                 return result > 0 ? RedirectToAction("Index") : RedirectToAction("Delete", model.Id);

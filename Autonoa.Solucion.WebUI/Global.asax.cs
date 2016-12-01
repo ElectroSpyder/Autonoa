@@ -1,9 +1,5 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using AutoMapper;
-using Autonoa.Solucion.Data;
-using Autonoa.Solucion.Model.Profile;
-using Autonoa.Solucion.Model.ViewModel;
 
 namespace Autonoa.Solucion.WebUI
 {
@@ -14,13 +10,7 @@ namespace Autonoa.Solucion.WebUI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            var mappingConfig = new AutoMapper.MapperConfiguration(cfg =>
-            {
-                cfg.AddAdminMapping();
-                cfg.CreateMissingTypeMaps = true;
-            });
-            mappingConfig.CreateMapper();
-            //services.AddSingleton(x => mappingConfig.CreateMapper());
+            Helper.AutoMapperConfig.RegisterMappings();
         }
     }
 }
