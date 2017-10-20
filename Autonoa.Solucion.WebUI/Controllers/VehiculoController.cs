@@ -13,6 +13,7 @@ namespace Autonoa.Solucion.WebUI.Controllers
     {
         private readonly IGenericRepository<Vehiculo> _vehiculoRepository;
         private readonly IMapper _mapper;
+
         public VehiculoController()
         {
             _vehiculoRepository = new VehiculoRepository();
@@ -23,8 +24,13 @@ namespace Autonoa.Solucion.WebUI.Controllers
         public ActionResult Index()
         {
             var vehiculo = _vehiculoRepository.GetAll();
-            var model = _mapper.Map<IEnumerable<Vehiculo>, List<VehiculoModel>>(vehiculo);
+            var model = new List<VehiculoModel>();
+            if (vehiculo != null)
+            {
+                model = _mapper.Map<IEnumerable<Vehiculo>, List<VehiculoModel>>(vehiculo);
 
+
+            }
             return View(model);
         }
 
@@ -51,12 +57,12 @@ namespace Autonoa.Solucion.WebUI.Controllers
         {
             try
             {
-               
+
                 var modelToSave = _mapper.Map<VehiculoModel, Vehiculo>(model);
                 var saved = _vehiculoRepository.Add(modelToSave);
                 return saved > 0 ? RedirectToAction("Details", modelToSave) : RedirectToAction("Index");
             }
-            catch 
+            catch
             {
 
                 return View("Index");

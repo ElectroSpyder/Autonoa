@@ -1,7 +1,7 @@
 ﻿@model Autonoa.Solucion.Model.ViewModel.VehiculoModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Alta de Vehículo";
 }
 
 <h2>Crear Vehiculo</h2>
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>VehiculoModel</h4>
+        <h4>Vehículos</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

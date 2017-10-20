@@ -1,5 +1,4 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using Autonoa.Solucion.Data;
 using Autonoa.Solucion.Model.ViewModel;
 

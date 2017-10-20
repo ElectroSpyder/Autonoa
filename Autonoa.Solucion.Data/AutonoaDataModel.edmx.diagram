@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="472c5f41847d4a8ba1459f3a308557b8" Name="Diagram1">
-        <EntityTypeShape EntityType="AutonoaModel.Usuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AutonoaModel.Vehiculo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutonoaModel.Usuario" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AutonoaModel.Vehiculo" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

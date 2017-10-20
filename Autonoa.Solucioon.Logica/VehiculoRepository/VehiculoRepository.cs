@@ -14,7 +14,7 @@ namespace Autonoa.Solucioon.Logica.VehiculoRepository
 
         public VehiculoRepository()
         {
-            this._context = new AutonoaEntities();
+            _context = new AutonoaEntities();
         }
        
         public int Add(Vehiculo entity)
